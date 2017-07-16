@@ -1,8 +1,8 @@
 ---
-title:          GitHub Gallery
+title:          Fedora 26 Release Party Novi Sad Gallery
 image_folder:   /images/
 max_width:      900px
-sort_by:        modified_time   # modified_time or path (notice: path is case sensitive)
+sort_by:        path   # modified_time or path (notice: path is case sensitive)
 date_format:    "%A, %B %-d, %Y"
 ---
 
@@ -20,7 +20,7 @@ date_format:    "%A, %B %-d, %Y"
 <ul class="ins-imgs">
 
     {% assign imgs = (site.static_files | sort: page.sort_by) %}
-    {% for img in imgs reversed %}
+    {% for img in imgs %}
     {% if img.path contains page.image_folder %}
     {% assign img_name = img.path | remove: page.image_folder | split: '.' | first %}
     {% assign img_date = img.modified_time | date: page.date_format %}
@@ -33,7 +33,6 @@ date_format:    "%A, %B %-d, %Y"
                      style="max-width: {{ page.max_width }}"/>
             </a>
         </div>
-        <div class="ins-imgs-label">Image name: {{ img_name }} (added {{ img_date }})</div>
     </li>
 
     {% endif %}
